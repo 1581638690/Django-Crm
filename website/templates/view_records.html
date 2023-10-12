@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        {% if single_data %}
+            <div class="card">
+                <div class="card-header"><strong>{{ single_data.first_name}}
+                {{ single_data.last_name }}</strong>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Email:</strong>{{ single_data.email }}</p>
+                    <p class="card-text">
+                            <strong>Phone: </strong>{{ single_data.phone }}</p>
+                    <p class="card-text">
+                        <strong>Address: </strong>{{ single_data.address }}</p>
+                    <p class="card-text">
+                        <strong>City: </strong>{{ single_data.city }}</p>
+                    <p class="card-text">
+                            <strong>State: </strong>{{ single_data.state }}</p>
+                    <p class="card-text">
+                            <strong>Zipcode: </strong>{{ single_data.zipcode }}</p>
+                    <p class="card-text">
+                            <strong>ID: </strong>{{ single_data.id}}</p>
+                    <p class="card-text">
+                            <strong>create At: </strong>{{ single_data.created_at }}</p>
+                </div>
+            </div>
+            <br></br>
+            <a href="{% url 'home' %}" class="btn-secondary">Back</a>
+            <a href="{% url 'delete_record' single_data.id %}" class="btn-danger">Delete_record</a>
+            <a href="{% url 'update_record' single_data.id %}" class="btn-warning">Update_record</a>
+
+        </div>
+    </div>
+</div>
+
+
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+{% endblock %}
+        {% endif %}
+
+
+
+{% endblock %}
